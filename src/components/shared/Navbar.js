@@ -14,6 +14,7 @@ import { IconButton, Stack } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Link from "next/link";
+import Header from "./Header";
 
 const navItems = [
   { route: "Home", pathname: "/" },
@@ -26,46 +27,49 @@ const navItems = [
 
 const Navbar = () => {
   return (
-    <AppBar position="static" className="bg-black">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Image src={logo} width={100} height={100} alt="logo"></Image>
-          <Box className="w-full  flex justify-center">
-            {navItems.map((item) => (
-              <Button
-                key={item}
-                sx={{ my: 2, color: "white", display: "block" }}
+    <>
+      <Header></Header>
+      <AppBar position="static" className="bg-black">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Image src={logo} width={100} height={100} alt="logo"></Image>
+            <Box className="w-full  flex justify-center">
+              {navItems.map((item) => (
+                <Button
+                  key={item}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  <Link href={item.pathname}>{item.route}</Link>
+                </Button>
+              ))}
+            </Box>
+            <Box>
+              <Stack
+                direction="row"
+                sx={{
+                  "& svg": {
+                    color: "white",
+                  },
+                }}
               >
-                <Link href={item.pathname}>{item.route}</Link>
-              </Button>
-            ))}
-          </Box>
-          <Box>
-            <Stack
-              direction="row"
-              sx={{
-                "& svg": {
-                  color: "white",
-                },
-              }}
-            >
-              <IconButton>
-                <FacebookIcon></FacebookIcon>
-              </IconButton>
-              <IconButton>
-                <InstagramIcon></InstagramIcon>
-              </IconButton>
-              <IconButton>
-                <FacebookIcon></FacebookIcon>
-              </IconButton>
-              <IconButton>
-                <InstagramIcon></InstagramIcon>
-              </IconButton>
-            </Stack>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+                <IconButton>
+                  <FacebookIcon></FacebookIcon>
+                </IconButton>
+                <IconButton>
+                  <InstagramIcon></InstagramIcon>
+                </IconButton>
+                <IconButton>
+                  <FacebookIcon></FacebookIcon>
+                </IconButton>
+                <IconButton>
+                  <InstagramIcon></InstagramIcon>
+                </IconButton>
+              </Stack>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
   );
 };
 export default Navbar;
