@@ -24,7 +24,14 @@ const DynamicCategories = async ({ params, searchParams }) => {
           <Grid key={news.id} item xs={6}>
             <Card>
               <CardActionArea>
-                <CardMedia>
+                <CardMedia
+                  sx={{
+                    "& img": {
+                      width: "100%",
+                      height: "250px",
+                    },
+                  }}
+                >
                   <Image
                     src={news.thumbnail_url}
                     width={500}
@@ -37,13 +44,17 @@ const DynamicCategories = async ({ params, searchParams }) => {
                 </p>
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="div">
-                    {news.title}
+                    {news.title.length > 30
+                      ? news.title.slice(0, 30) + "..."
+                      : news.title}
                   </Typography>
                   <Typography variant="body1" className="my-2">
                     {news.author.name} - {news.author.published_date}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {news.details}
+                    {news.details.length > 300
+                      ? news.details.slice(0, 300) + "...."
+                      : news.details}
                   </Typography>
                 </CardContent>
               </CardActionArea>
