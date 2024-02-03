@@ -19,7 +19,7 @@ import Header from "./Header";
 const navItems = [
   { route: "Home", pathname: "/" },
   { route: "Pages", pathname: "/pages" },
-  { route: "Category", pathname: "/category" },
+  { route: "Category", pathname: "/categories" },
   { route: "News", pathname: "/news" },
   { route: "About", pathname: "/about" },
   { route: "Contact", pathname: "/contact" },
@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <>
       <Header></Header>
-      <AppBar position="static" className="bg-black">
+      <AppBar position="static" className="bg-black mb-10">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Image src={logo} width={100} height={100} alt="logo"></Image>
