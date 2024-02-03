@@ -3,7 +3,7 @@ import { Box, Container, Grid } from "@mui/material";
 
 const CategoriesLayout = ({ children }) => {
   return (
-    <Box>
+    <Box className="mb-10">
       <Container>
         <Grid container spacing={2}>
           <Grid xs={3}>
