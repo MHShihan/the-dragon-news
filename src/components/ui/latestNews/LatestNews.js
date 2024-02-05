@@ -10,8 +10,11 @@ import {
 import Image from "next/image";
 import topNews from "@/assets/top-news.png";
 import topNews2 from "@/assets/top-news2.png";
+import { getAllNews } from "@/utils/getAllNews";
 
-const LatestNews = () => {
+const LatestNews = async () => {
+  const { data: news } = await getAllNews();
+  console.log(news);
   return (
     <Box className="mr-5">
       <Card className="my-10">
